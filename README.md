@@ -85,8 +85,15 @@ Jinlong Yang
 
 # Develop
 
+    1 初始化git
     # git init
-    # python seup.py develop
+
+    2 安装依赖
+    # yum install -y mysql-devel libvirt-devel
+
+    3 代码构建(注: 要求python3)
+    # python tools/install_venv.py
+    # tools/with_venv.sh python seup.py develop
 
 
 # Run
@@ -95,4 +102,12 @@ Jinlong Yang
     # tools/with_venv.sh v2os-migrate --config-file=etc/dev.conf -h
 
     # 迁移信息
-    # tools/with_venv.sh v2os-migrate --config-file=etc/dev.conf --VM-os=centos-6.9 --VM-vlan=1220 --VM-cpu=4 --VM-mem=4 --VM-disk=150 --VM-ip=10.12.28.44 --VM-hostname=yy-jinlong00.yy --VM-hypervisor=dx-tkvm00.dx --VM-mount=/data
+    # tools/with_venv.sh v2os-migrate --config-file=etc/dev.conf --VM-os=centos-6.9 --VM-vlan=1220 --VM-cpu=4 --VM-mem=4 --VM-disk=150 --VM-hostname=yy-jinlong00.yy --VM-hypervisor=dx-tkvm00.dx --VM-mount=/data
+
+
+# Online
+
+    # cd /opt; git clone ....
+    # ln -s /opt/v2os/.venv/bin/v2os-migrate /usr/local/bin/v2os-migrate
+    # touch /etc/v2os.conf
+    # v2os-migrate --config-file=/etc/v2os.conf -h
