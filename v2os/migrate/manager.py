@@ -44,7 +44,7 @@ class Manager:
                random.randint(0x00, 0xff)]
         return ':'.join(map(lambda x: "%02x" % x, mac))
 
-    def generate_ip_address(self):
+    def generate_ip_address(self, network_id):
         """Gererate ip address.
         """
         # NOTE(从已创建的vlan中取出一个ip. 要求:
@@ -53,6 +53,7 @@ class Manager:
                 .filter(objects.FixedIp.reserved == False)\
                 .filter(objects.FixedIp.instance_uuid == None)\
                 .filter(objects.FixedIp.host == None)\
+                .filter(objects.FixedIp.network_id == network_id)\
                 .order_by(asc(objects.FixedIp.updated_at))\
                 .first()
         return fixed_ip.address

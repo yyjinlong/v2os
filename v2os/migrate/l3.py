@@ -32,10 +32,10 @@ class L3Manager(Manager):
         self.session = session
         self.instance_ref = instance_ref
         self.instance_uuid = instance_ref.uuid
-        self.ip = self.generate_ip_address()
 
     def write(self):
         network_id = self.read_network_id()
+        self.ip = self.generate_ip_address(network_id)
         virtual_interface_id = self.create_virtual_interface(network_id)
         LOG.info('step9 write instance: %s map virtual interface id: %s '
                  'success.' % (self.instance_uuid, virtual_interface_id))
