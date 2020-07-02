@@ -38,6 +38,11 @@ Jinlong Yang
         ip link set vlan1220 master br1220
         ip link set br1220 up
 
+        或:
+        brctl addbr br1220
+        brctl addif br1220 vlan1220
+        ip link set br1220 up
+
     4 检查已创建好的br1220和绑定情况
 
         ip link show br1220
