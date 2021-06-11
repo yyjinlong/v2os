@@ -17,7 +17,7 @@ class LibvirtDriver:
     def connect(self, ip):
         """Get a connection to the hypervisor.
         """
-        uri  = 'qemu+ssh://root@%(ip)s/system' % {'ip': ip}
+        uri = 'qemu+ssh://root@%(ip)s/system' % {'ip': ip}
         self.conn = libvirt.open(uri)
         if self.conn is None:
             raise Exception('Connnect to hypervisor: %s failed.' % ip)

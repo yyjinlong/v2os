@@ -67,7 +67,7 @@ class InstanceManager(Manager):
             raise Exception('cpu核数不能超过64核!')
         if CONF.VM.mem > 256:
             raise Exception('内存不能大于256G!')
-        if not re.search('\w*-\d*.\d*', CONF.VM.os):
+        if not re.search(r'\w*-\d*.\d*', CONF.VM.os):
             raise Exception('os值错误, 正确如: centos-6.9、centos-7.5...')
 
     def write(self):

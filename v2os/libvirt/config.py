@@ -79,10 +79,10 @@ class LibvirtConfigMetaInstance(LibvirtConfigObject):
         disk = self._text_node('disk', self.flavor_disk)
         flavor.append(disk)
 
-        swap =  self._text_node('swap', '0')
+        swap = self._text_node('swap', '0')
         flavor.append(swap)
 
-        ephemeral =  self._text_node('ephemeral', '0')
+        ephemeral = self._text_node('ephemeral', '0')
         flavor.append(ephemeral)
 
         vcpu = self._text_node('vcpus', self.cpu)

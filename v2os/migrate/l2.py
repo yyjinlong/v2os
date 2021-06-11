@@ -305,7 +305,7 @@ class LibvirtManager(Manager, L2Drivier):
         # disk.info
         disk_file = '%s/disk' % instance_dir
         info_file = '%s/disk.info' % instance_dir
-        disk_info = json.dumps({disk_file:  'qcow2'})
+        disk_info = json.dumps({disk_file: 'qcow2'})
         self.textarea(hypervisor, disk_info, info_file)
         self.chown(hypervisor, info_file, 'nova', 'nova')
         LOG.info('step13 write instance: %s disk.info success.' % uuid)
